@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="d-flex">
+            <div class="d-inline p-2 w-50">
+                <img src="{{profile.picture}}"
+                     class="w-50 rounded mx-auto d-block" alt="description">
+            </div>
+            <div class="d-inline p-2 w-50">
+                <div class="d-flex flex-column">
+                    <h5><u>Name:</u> {{ profile.first_name }} {{ profile.last_name }}</h5>
+
+                    <!-- If Date of Birth -->
+                    {% if profile.data_of_birth %}
+
+                        <h5><u>Birthdate:</u> {{ profile.date_of_birth }}</h5>
+                    {% endif %}
+                    <!-- If Email -->
+                    {% if profile.email %}
+                        <h5><u>Email:</u> {{ profile.email }}</h5>
+                    {% endif %}
+                    <!-- If Gender is Chosen -->
+                    {% if profile.gender %}
+                        <h5><u>Gender:</u> {{ profile.gender }} </h5>
+                    {% endif %}
+                    <!-- If Description -->
+                    {% if profile.description %}
+                        <h5><u>Description:</u> {{ profile.description }}</h5>
+                    {% endif %}
+                </div>
+                <p class="mt-2">Total Images: {{ total_images_count }}</p>
+                <p class="mt-2">Total Likes: {{ total_likes_count }}</p>
+                {%  if is_owner %}
+                    <a href="{% url 'edit_profile' request.user.pk %}" class="btn btn-primary">Edit</a>
+{#                    <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete</a>#}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Profile Information -->
+
+<!-- Pets Information -->
+<h2 class="text-center">My Pets</h2>
+<div class="container mb-4">
+    <div class="d-flex justify-content-start mb-5">
+        <!-- Info for First Pet -->
+        <div style="width: 18rem;">
+            {% for pet in pets %}
+                <h5>{{pet.name}}</h5>
+                {% if pet.age %}
+                    <p class="mt-2">Age: {{pet.age}}</p>
+                {% endif %}
+                {% if is_owner %}
+                    <a href="{% url 'edit_pet' pet.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_pet' pet.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

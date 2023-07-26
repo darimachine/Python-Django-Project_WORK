@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Add Your Pet Info</h1>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form method="post" class="container mb-5" action="{% url 'create_pet'%}">
+
+                {% csrf_token %}
+                {{ form }}
+
+                <button class="btn btn-primary mt-2" type="submit">Create</button>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+{% endblock %}
