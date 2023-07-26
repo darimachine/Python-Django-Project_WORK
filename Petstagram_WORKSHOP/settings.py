@@ -103,12 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -127,12 +122,12 @@ USE_TZ = True
 
 BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(BASE_DIR2, 'staticfiles')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR/"static",
-    'static'
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR2, 'static'),
+
+)
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
