@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import generic as views
 
@@ -24,7 +25,7 @@ class HomeView(RedirectToDashboard,views.TemplateView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class ShowDashboardView(views.ListView):
+class ShowDashboardView(views.ListView,LoginRequiredMixin):
     model = PetPhoto
     template_name = 'dashboard.html'
     context_object_name = 'pet_photos'

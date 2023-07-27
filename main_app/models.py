@@ -82,4 +82,5 @@ class PetPhoto(models.Model):
     )
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     def __str__(self):
-        return f"Photo on {self.tagged_pets.name}"
+        tagged_pet_names = ", ".join([pet.name for pet in self.tagged_pets.all()])
+        return f"Photo on {tagged_pet_names}"
