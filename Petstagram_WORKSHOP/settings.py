@@ -20,15 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y!6dbl!v#tn8s0#!aj7i1avyh!i56#usl2#&j=e=iy^n_je&ic'
+SECRET_KEY = os.getenv('SECRET_KEY','django-insecure-y!6dbl!v#tn8s0#!aj7i1avyh!i56#usl2#&j=e=iy^n_je&ic')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'petstagram-django-3c1fdb5d2355.herokuapp.com',
-]
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS','localhost 127.0.0.1').split(' ')
+
 
 
 # Application definition
@@ -91,20 +89,21 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+if os.getenv('APP_PRODUCTION','Development') == 'Production':
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -142,3 +141,11 @@ LOGIN_REDIRECT_URL='dashboard'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name=os.getenv("CLODUINARY_cloud_name"),
+    api_key=os.getenv("CLODUINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+)
