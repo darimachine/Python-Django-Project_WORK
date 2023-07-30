@@ -18,7 +18,6 @@ class Pet(models.Model):
     FISH='Fish'
     OTHER = 'Other'
     TYPES=[(x,x) for x in (CAT,DOG,BUNNY,PARROT,FISH,OTHER)]
-
     #Columns
     name =models.CharField(
         max_length=NAME_MAX_LENGHT,
