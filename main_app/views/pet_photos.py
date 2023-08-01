@@ -16,6 +16,13 @@ class ShowPetPhotoDetail(LoginRequiredMixin,views.DetailView):
     model = PetPhoto
     template_name = 'photo_details.html'
     context_object_name = 'pet_photo'
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        viewed_pet_photos = request.session.get('last_viewed_pet_photos_ids', [])
+        viewed_pet_photos.insert(0, self.kwargs['pk'])
+        request.session['last_viewed_pet_photos_ids'] = viewed_pet_photos[:5]
+        return response
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_owner'] =self.object.user == self.request.user
