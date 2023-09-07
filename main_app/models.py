@@ -58,7 +58,7 @@ class Pet(models.Model):
         unique_together=('user','name')
 
 
-import cloudinary.models as cloudinary
+# import cloudinary.models as cloudinary
 class PetPhoto(models.Model):
 
 

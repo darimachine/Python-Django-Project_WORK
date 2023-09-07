@@ -46,7 +46,7 @@ INSTALLED_APPS = DJANGO_APPS+THIRD_PARTY_APPS+PETSTAGRAM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,10 +146,10 @@ LOGIN_REDIRECT_URL='dashboard'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import cloudinary
-
-cloudinary.config(
-    cloud_name=os.getenv("CLODUINARY_cloud_name"),
-    api_key=os.getenv("CLODUINARY_API_KEY"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET")
-)
+# import cloudinary
+#
+# cloudinary.config(
+#     cloud_name=os.getenv("CLODUINARY_cloud_name"),
+#     api_key=os.getenv("CLODUINARY_API_KEY"),
+#     api_secret=os.getenv("CLOUDINARY_API_SECRET")
+# )
