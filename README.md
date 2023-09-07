@@ -37,6 +37,7 @@ Let's Create Some Pets and put some photos on them
 <h1>Also you have full CRUD operations on your profile pet photos and pets. YOU CAN ONLY EDIT YOUR PROFILE AND YOUR PETS AND PHOTOS. There is Administrator User as well.</h1>
 
 <h2> You can like other people's pet photos, but you cannot like yours</h2>
+
 <hr>
 
 ![image](https://github.com/darimachine/Python-Django-Project/assets/67830778/722e7f5f-2791-44bf-8e38-bba4763b1922)
