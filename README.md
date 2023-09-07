@@ -25,6 +25,7 @@ Let's Create Some Pets and put some photos on them
 <hr>
 <h1>Here is how it looks on other people's account</h1>
 <hr>
+
 ![image](https://github.com/darimachine/Python-Django-Project/assets/67830778/c502ec5b-41f3-4e10-9b48-ed15095c6891)
 
 ![image](https://github.com/darimachine/Python-Django-Project/assets/67830778/d04468c5-0941-42f0-b0da-8e9cde75d1b6)
