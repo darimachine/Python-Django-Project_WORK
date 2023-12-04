@@ -9,7 +9,7 @@
 Then you need to Register Yourself
 
 <hr>
-
+<summary> First Picture</summary>
 ![image](https://github.com/darimachine/Python-Django-Project/assets/67830778/c479c6a7-fce1-44ee-ba02-2914ab89c4f5)
 
 After you register your information will be saved on the database and you will be able to see other peoples pet photos and pets!!
