@@ -1,4 +1,12 @@
 # Python-Django-Project
+
+## Installation
+
+Install required framework by typing
+
+```pip
+  pip install -r requirements.txt
+```
 <h2>The first Page which you are gonna see opening the website</h2>
 
 <hr>
