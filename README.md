@@ -4,7 +4,7 @@
 
 Install required framework by typing
 
-```pip
+```bash
   pip install -r requirements.txt
 ```
 <h2>The first Page which you are gonna see opening the website</h2>
